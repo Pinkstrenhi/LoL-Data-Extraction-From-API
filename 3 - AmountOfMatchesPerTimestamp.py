@@ -25,6 +25,7 @@ requestMatchId = "/lol/match/v5/matches/by-puuid/"
 count = 100
 extractionLimit = 0
 extractionLimitTotal = 99
+limitTime = 70
 
 def CreateURL(location,requestApi,code,apikey):
     url = "https://" + location + ".api.riotgames.com" + requestApi + code + "api_key=" + apikey
@@ -59,7 +60,7 @@ for i in range(len(dfPlayer)):
     
     if extractionLimit >= extractionLimitTotal:
         print("\nSleep\n")
-        time.sleep(extractionLimitTotal)
+        time.sleep(limitTime)
         extractionLimit = 0
     
     player = dfPlayer["Players"][i]
