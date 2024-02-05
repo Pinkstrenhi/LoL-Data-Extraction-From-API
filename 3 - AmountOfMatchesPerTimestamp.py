@@ -2,6 +2,7 @@
 
 import pandas as pd
 import requests
+import os
 import csv
 import time
 
@@ -47,7 +48,7 @@ def UpdateCSV(csvPath,write):
 
 weeks = []
         
-with open(Directiory + FileName, mode="w",encoding="utf-16", newline="") as csvfile:
+with open(os.path.join(Directiory,FileName), mode="w",encoding="utf-16", newline="") as csvfile:
     for i in range(1,41):
         weeks.append(f"Week{i}")
     fieldnames = ["Player","Puuid","Region","RegionCode"] + weeks
@@ -88,7 +89,7 @@ for i in range(len(dfPlayer)):
     print("-"*60)
         
     
-    UpdateCSV(Directiory + FileName, [player,puuid,region,regionCode] + amountOfMatchesPerTimestamp)
+    UpdateCSV(os.path.join(Directiory,FileName), [player,puuid,region,regionCode] + amountOfMatchesPerTimestamp)
 
    
     
